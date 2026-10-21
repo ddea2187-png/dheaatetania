@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio pribadi">
+  <title>Portofolio Saya</title>
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --surface: #ffffff;
+      --text: #202033;
+      --muted: #68687b;
+      --primary: #6c63ff;
+      --primary-dark: #5148e5;
+      --border: #e8e7f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1080px, 90%); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+    nav { min-height: 70px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-weight: 800; font-size: 1.25rem; color: var(--primary); }
+    .nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: wrap; }
+    .nav-links a { font-size: .95rem; color: var(--muted); }
+    .nav-links a:hover { color: var(--primary); }
+    .hero { padding: 90px 0 75px; }
+    .hero-inner { display: grid; grid-template-columns: 1.4fr .8fr; gap: 45px; align-items: center; }
+    .eyebrow { color: var(--primary); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-size: .82rem; }
+    h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.1; margin: 14px 0 18px; }
+    h1 span { color: var(--primary); }
+    .hero p, .section-intro { color: var(--muted); max-width: 650px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-block; padding: 12px 20px; border-radius: 10px; font-weight: 700; border: 1px solid var(--primary); transition: .2s; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-outline { color: var(--primary); }
+    .btn-outline:hover { background: #eeedff; }
+    .profile-card {
+      background: linear-gradient(145deg, #e7e5ff, #fff);
+      border: 1px solid var(--border); border-radius: 28px;
+      min-height: 300px; display: grid; place-items: center; padding: 30px;
+      box-shadow: 0 18px 50px rgba(45, 39, 110, .08);
+    }
+    .avatar { width: 155px; height: 155px; border-radius: 50%; display: grid; place-items: center; background: var(--primary); color: white; font-size: 3.3rem; font-weight: 800; border: 8px solid white; }
+    .profile-card p { margin-top: 18px; color: var(--muted); text-align: center; }
+    section { padding: 65px 0; }
+    .section-heading { margin-bottom: 28px; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 8px; }
+    .about-box, .card, .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 25px; }
+    .skills { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .skill { padding: 9px 14px; border-radius: 999px; background: #eeedff; color: #5148b9; font-weight: 700; font-size: .92rem; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { transition: transform .2s, box-shadow .2s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(30, 25, 80, .08); }
+    .project-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 13px; background: #eeedff; font-size: 1.5rem; margin-bottom: 16px; }
+    .card h3 { margin-bottom: 9px; }
+    .card p { color: var(--muted); font-size: .95rem; }
+    .contact-box { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .contact-box p { color: var(--muted); }
+    footer { text-align: center; padding: 25px 0; color: var(--muted); border-top: 1px solid var(--border); font-size: .9rem; }
+    @media (max-width: 760px) {
+      nav { padding: 14px 0; align-items: flex-start; flex-direction: column; }
+      .nav-links { gap: 12px 18px; }
+      .hero { padding-top: 55px; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .profile-card { min-height: 240px; }
+      .project-grid { grid-template-columns: 1fr; }
+      section { padding: 48px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Navigasi utama">
+      <a class="logo" href="#beranda">Portofolio.</a>
+      <ul class="nav-links">
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#keahlian">Keahlian</a></li>
+        <li><a href="#proyek">Proyek</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="container hero-inner">
+        <div>
+          <div class="eyebrow">Halo, selamat datang!</div>
+          <h1>Saya <span>Dhea Tetania</span><br>Mahasiswa IT</h1>
+          <p>Saya tertarik pada teknologi, desain web, dan pengembangan aplikasi. Ini adalah halaman portofolio untuk memperkenalkan diri serta menampilkan keahlian dan proyek yang pernah saya kerjakan.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#proyek">Lihat Proyek</a>
+            <a class="btn btn-outline" href="#kontak">Hubungi Saya</a>
+          </div>
+        </div>
+        <div class="profile-card">
+          <div>
+            <div class="avatar" aria-label="Inisial nama">DT</div>
+            <p>Tambahkan foto atau inisial kamu di sini</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tentang">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Tentang Saya</h2>
+          <p class="section-intro">Perkenalan singkat mengenai diri saya.</p>
+        </div>
+        <div class="about-box">
+          <p>Nama saya <strong>Dhea Tetania</strong>. Saya seorang mahasiswa yang sedang mempelajari teknologi informasi dan pengembangan web. Saya senang belajar hal baru, bekerja sama dalam tim, dan membuat proyek yang bermanfaat. Saya ingin terus mengembangkan kemampuan serta pengalaman di bidang teknologi.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="keahlian">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Keahlian</h2>
+          <p class="section-intro">Beberapa kemampuan yang sedang saya pelajari dan kembangkan.</p>
+        </div>
+        <div class="skills">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript Dasar</span>
+          <span class="skill">Microsoft Office</span>
+          <span class="skill">Database Dasar</span>
+          <span class="skill">Kerja Sama Tim</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyek">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Proyek Saya</h2>
+          <p class="section-intro">Ganti contoh proyek berikut dengan tugas atau karya yang pernah kamu buat.</p>
+        </div>
+        <div class="project-grid">
+          <article class="card">
+            <div class="project-icon" aria-hidden="true">🌐</div>
+            <h3>Website Portofolio</h3>
+            <p>Website sederhana untuk memperkenalkan diri, menampilkan keahlian, dan menyimpan informasi kontak.</p>
+          </article>
+          <article class="card">
+            <div class="project-icon" aria-hidden="true">📦</div>
+            <h3>Aplikasi Rental Barang</h3>
+            <p>Konsep aplikasi untuk menampilkan barang yang disewakan, informasi harga, dan data penyewaan.</p>
+          </article>
+          <article class="card">
+            <div class="project-icon" aria-hidden="true">🗄️</div>
+            <h3>Database Sederhana</h3>
+            <p>Latihan merancang tabel, menentukan tipe data, dan mengelola informasi secara terstruktur.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Kontak</h2>
+          <p class="section-intro">Silakan hubungi saya melalui informasi di bawah ini.</p>
+        </div>
+        <div class="contact-box">
+          <div>
+            <h3>Mari terhubung!</h3>
+            <p>Email: emailkamu@example.com</p>
+            <p>Instagram: @usernamekamu</p>
+          </div>
+          <a class="btn btn-primary" href="mailto:emailkamu@example.com">Kirim Email</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Dhea Tetania. Dibuat dengan HTML dan CSS.</div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
